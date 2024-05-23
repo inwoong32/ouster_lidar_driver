@@ -17,7 +17,7 @@
     RNG19_RFL8_SIG16_NIR16,
     RNG15_RFL8_NIR8
     }"/>
-  <arg name="lidar_mode" default=""
+  <arg name="lidar_mode" default="1024x10"
     description="resolution and rate; possible values: {
     512x10,
     512x20,
@@ -46,11 +46,11 @@
 
   <arg name="sensor_frame" default="os_sensor"
     description="sets name of choice for the sensor_frame tf frame, value can not be empty"/>
-  <arg name="lidar_frame" default="os_lidar"
+  <arg name="lidar_frame" default="lidar"
     description="sets name of choice for the os_lidar tf frame, value can not be empty"/>
   <arg name="imu_frame" default="os_imu"
       description="sets name of choice for the os_imu tf frame, value can not be empty"/>
-  <arg name="point_cloud_frame" default=""
+  <arg name="point_cloud_frame" default="lidar"
     description="which frame to be used when publishing PointCloud2 or LaserScan messages.
     Choose between the value of sensor_frame or lidar_frame, leaving this value empty
     would set lidar_frame to be the frame used when publishing these messages."/>
@@ -58,7 +58,7 @@
   <arg name="use_system_default_qos" default="true"
     description="Use the default system QoS settings"/>
 
-  <arg name="proc_mask" default="IMG|PCL|IMU|SCAN" description="
+  <arg name="proc_mask" default="PCL" description="
     The IMG flag here is not supported and does not affect anything,
     to disable image topics you would need to omit the os_image node
     from the launch file"/>
